@@ -2,26 +2,236 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*here i used flex to center the div and grid to make the layout */
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(204, 43%, 93%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.container{
+  width: 700px;
+  height: 500px;
+  display: grid;
+  grid-template-areas: 
+  "area1 area1"
+  "area2 area3";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  box-shadow: 15px 10px 15px rgba(0, 0, 0, .1);
+  border-radius: 50px;
+}
+
+/* css for area1*/
+.area1{
+  grid-area: area1;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.area1 h1{
+  font-size: 1.4rem;
+  color: hsl(179, 63%, 32%);
+  margin: 25px;
+}
+.area1 h3{
+  color:hsl(71, 73%, 54%);
+  font-size: 1.15rem;
+  margin-left: 24px;
+  margin-bottom: 15px;
+ }
+ .area1 p{
+  color: hsl(218, 22%, 67%);
+  margin-left: 20px;
+  padding: 2px;
+}
+
+
+.area2{
+  grid-area: area2;
+  background-color: hsl(179, 62%, 43%);
+  border-bottom-left-radius: 10px;
+  color: white;
+}
+.area2 h2{
+  font-size: 1.3rem;
+  margin: 25px;
+}
+.amount{
+ font-size: 1.5rem;
+ padding-right: 5px;
+}
+.area2 p{
+  margin-left: 25px;
+}
+.perMonth{
+  color: hsl(218, 22%, 67%);
+}
+.area2 button{
+  width: 80%;
+  height: 60px;
+  background-color:hsl(71, 73%, 54%);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+
+.area3{
+  grid-area: area3;
+  background-color: hsl(179, 55%, 50%);
+  border-bottom-right-radius: 10px;
+  color: white;
+  
+}
+
+.area3 h2 {
+  font-size: 1.3rem;
+  margin: 25px;
+}
+
+.area3 li{
+  color: hsl(218, 100%, 90%);
+  margin-left: 25px;
+  font-size: 0.9rem;
+}
+.area3 ul{
+  margin-bottom: 60px;
+}
+
+
+
+@media (max-width:500px) {
+  body{
+    margin-bottom: 400px;
+  }
+  .container{
+    grid-template-areas: 
+    "area1"
+    "area2"
+    "area3";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    width: 375px;
+    height: 400px;
+  }
+  .area3{
+    grid-area: area3;
+    background-color: hsl(179, 55%, 50%);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+  }
+    .area1{
+      padding-bottom: 30px;
+    }
+  .area2{
+    grid-area: area2;
+    background-color: hsl(179, 62%, 43%);
+    color: white;
+    border-radius: 0%;
+    padding-bottom: 30px;
+  }
+
+  
+  .area3 li{
+    font-size: 1rem;
+  }
+  .area2 button{
+    margin-right: 30px;
+    width: 88%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+.SignUp {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(179, 62%, 43%);
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.SignUp h1 {
+  font-size: 1.5rem;
+  color: hsl(71, 94%, 60%);
+  margin-bottom: 20px;
+}
+
+.SignUp form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.SignUp span {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: hsl(71, 94%, 60%);
+}
+
+.SignUp input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.SignUp button {
+  background-color: hsl(71, 73%, 54%);
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .1);
+
+  
+}
+
+.SignUp button:hover {
+  background-color: hsl(71, 94%, 60%);
+}
+
+.SignUp p {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 500px) {
+  .SignUp {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .SignUp h1 {
+    font-size: 1.2rem;
+  }
+
+  .SignUp input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .SignUp button {
+    font-size: 0.9rem;
+    padding: 8px;
   }
 }
